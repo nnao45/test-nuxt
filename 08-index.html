@@ -1,0 +1,49 @@
+<!DOXTYPE html>
+<html>
+<head>
+    <title>My Vue App</title>
+        <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <style>
+        .ok {
+            font-size:24pt;
+            padding:5px 10px;
+            border:2px solid red;
+            color:blue;
+        }
+        .ng {
+            font-size:20pt;
+            color:gray;
+        }
+    </style>
+    <h1>Vue.js</h1>
+    <div id="app">
+        <p v-if="flag" class="ok">
+            これは正常は表示です。
+        </p>
+        <p v-else class="ng">
+            ※現在メンテナンス中です。
+        </p>
+    </div>
+    <hr>
+    <button onclick="doAction();">
+    click
+    </button>
+
+    <script>
+    var data = {
+       flag:true
+    };
+
+    var app = new Vue({
+        el: '#app',
+        data: data
+    });
+
+    function doAction() {
+        data.flag = !data.flag;
+    }
+    </script>
+</body>
+</html>
